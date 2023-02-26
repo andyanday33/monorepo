@@ -175,8 +175,8 @@ const SinglePost = () => {
   return (
     <CenteredContainer css={{ gap: 5, pt: 20 }}>
       <PostItem post={post} showContent />
-      <Box css={{ mt: 10, width: "100%" }}>
-        <Separator css={{ mt: 10 }} />
+      <Box css={{ width: "100%", mt: 10 }}>
+        <Separator />
       </Box>
       <Box css={{ mt: 10 }}>
         <Text size={5} css={{ fontWeight: 500, color: "$gray11" }}>
