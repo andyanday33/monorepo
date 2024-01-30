@@ -1,17 +1,17 @@
-### Introduction
+### Giriş
 
-Custom properties (also known as CSS variables) can be a really useful and powerful tool when writing our CSS files. In short, they allow us to reference a CSS value however many times we want throughout a file. By using custom properties, instead of having to update every single instance of a specific value ("This shade of red is too light, let's change the shade on all seven of these selectors"), we only need to update a single instance: the custom property itself. Not only that, but custom properties can help us keep colors consistent throughout a project, something that will be really helpful as projects get larger.
+Özel özellikler (aynı zamanda CSS değişkenleri olarak bilinirler) CSS dosyalarımızı yazarken gerçekten kullanışlı ve güçlü bir araç olabilirler. Kısacası, bir dosya içerisinde bir CSS değerini istediğimiz kadar referans etmemize olanak sağlarlar. Özel özellikleri kullanarak, belirli bir değerin her bir örneğini güncellemek zorunda kalmadan ("Bu kırmızı tonu çok açık, bu yedi seçicinin tümündeki tonu değiştirelim") yalnızca tek bir örneği güncellememiz yeterlidir: özel özelliğin ta kendisi. Sadece bu da değil, özel özellikler projedeki renkleri tutarlı tutmamıza yardımcı olabilir, bu da projeler büyüdükçe gerçekten yardımcı olacak bir şeydir.
 
-We can even redefine custom properties under different contexts, which is incredibly useful for creating themes, such as the dark and light themes you see on many websites these days.
+Farklı bağlamlar altında özel özellikleri yeniden tanımlayabiliriz bile, bu da tema oluşturmak için son derece kullanışlıdır, örneğin bu günlerde birçok web sitesinde gördüğünüz karanlık ve açık temalar gibi.
 
-### Learning outcomes
+### Öğrenme çıktıları
 
-* You'll learn how to declare a custom property
-* You'll learn how to access a custom property in a rule declaration
+* Bir özel özelliği nasıl tanımlayacağınızı öğreneceksiniz
+* Bir kural tanımında bir özel özelliğe nasıl erişeceğinizi öğreneceksiniz
 
-### Using custom properties
+### Özel özelliklerin kullanımı
 
-The syntax for declaring and accessing a custom property is really simple and not too different from how we write normal rule declarations:
+Bir özel özelliği tanımlamak için kullanılan sözdizimi gerçekten basit ve normal kural tanımlarını nasıl yazdığımızdan çok farklı değil:
 
 ```css
 .error-modal {
@@ -25,13 +25,13 @@ The syntax for declaring and accessing a custom property is really simple and no
 }
 ```
 
-That's it! First, we declare our custom property with a double hyphen followed by a case-sensitive, hyphen-separated property name (`color-error-text` wouldn't be the same as `Color-Error-Text`). The use of Kebab case (single hyphens to separate words) is very important here because spaces are not valid (`--color error text` would not work). Then we can store any valid CSS value in our newly declared custom property, whether it be a simple color value, shorthand values, or even a more complex function, just to give you a few examples.
+Bu kadar! Önce, çift tire ile başlayan ve büyük-küçük harfe duyarlı, tire ile ayrılmış bir özellik adı (`color-error-text` `Color-Error-Text` ile aynı olmayacaktır) ile özel özelliğimizi tanımlıyoruz. Burada Kebab case kullanımı (kelimeleri ayırmak için tek tireler) çok önemlidir çünkü boşluklar geçerli değildir (`--color error text` çalışmayacaktır). Sonra yeni tanımlanan özel özelliğimizin içine geçerli CSS değerlerinden herhangi birini saklayabiliriz, örneğin; basit bir renk değeri, kısa değerler veya daha karmaşık bir fonksiyon bile olabilir.
 
-When we want to access a custom property, we use the `var()` function as the value of a CSS property, and then place our custom property inside of the parenthesis (including the double hyphen at the beginning).
+Bir özel özelliğe erişmek istediğimizde, CSS özelliğinin değeri olarak `var()` fonksiyonunu kullanırız ve ardından özel özelliğimizi parantez içine koyarız (baştaki çift tire dahil).
 
-#### Fallback values
+#### Alternatif değerler
 
-The `var()` function actually accepts two parameters. The first parameter we've already gone over, which is the custom property we want to assign. The second parameter is an optional fallback value. When a fallback value is provided in addition to a custom property, the fallback value will be used if the custom property is invalid or hasn't been declared yet. We can even pass in *another* custom property as a fallback, which can have *its own* fallback value as well!
+`var()` fonksiyonu aslında iki parametre kabul eder. İlk parametre'nin zaten üstünden geçtik, kendisi atamak istediğimiz özel özelliğimiz. İkinci parametre ise opsiyonel bir alternatif değer. Özel özelliğin yanında bir alternatif değer sağlandığında, özel özellik geçersiz veya henüz tanımlanmamışsa alternatif değer kullanılacaktır. Hatta bir alternatif olarak *başka* bir özel özelliği de verebiliriz, bu da *kendine ait* bir alternatif değere sahip olabilir!
 
 ```css
 .fallback {
@@ -41,7 +41,7 @@ The `var()` function actually accepts two parameters. The first parameter we've 
   color: var(--undeclared-again, var(--color-text, yellow));
 }
 ```
-
+// TODO: continue from here
 In the above example, our `background-color` property would have a value of `black` and our `color` property would have a value of `white`. If the `--color-text` custom property was invalid or didn't exist, the fallback to our fallback would take over and the `color` property would have a value of `yellow`.
 
 ### Scope
