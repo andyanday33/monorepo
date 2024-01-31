@@ -41,21 +41,20 @@ Bir özel özelliğe erişmek istediğimizde, CSS özelliğinin değeri olarak `
   color: var(--undeclared-again, var(--color-text, yellow));
 }
 ```
-// TODO: continue from here
-In the above example, our `background-color` property would have a value of `black` and our `color` property would have a value of `white`. If the `--color-text` custom property was invalid or didn't exist, the fallback to our fallback would take over and the `color` property would have a value of `yellow`.
+Yukarıdaki örnekte, `background-color` özelliğimizin değeri `black` olacaktır ve `color` özelliğimizin değeri `white` olacaktır. Eğer `--color-text` özel özelliği geçersiz olsa ya da var olmasa, alternatif değerimizin alternatif değeri devreye girecektir ve `color` özelliğimizin değeri `yellow` olacaktır.
 
-### Scope
+### Kapsam
 
-In the first example above, you may have noticed that we declared and then accessed our custom properties within the same declaration block. That's because the scope of a custom property is determined by the selector. This scope includes the selector the custom property was declared for as well as any descendants of that selector. If you're familiar with how scope works in JavaScript, this sort of behavior should feel a little similar.
+Yukarıdaki ilk örnekte, özel özelliklerimizi aynı oluşturma bloğu içerisinde oluşturduğumuzu ve eriştiğimizi fark etmiş olabilirsiniz. Bu, bir özel özelliğin kapsamının seçici tarafından belirlendiğinden dolayıdır. Bu kapsam, özel özelliğin oluşturulduğu seçiciyi ve bu seçicinin herhangi bir soyundan gelenini içerir. Eğer JavaScript'teki kapsamın nasıl çalıştığını biliyorsanız, bu tür davranışlar biraz benzer hissettirecektir.
 
-In the example below, only the element with the `cool-paragraph` class would get styled with a red background since it's a descendant of the element where our custom property is declared.
+Aşağıdaki örnekte, `cool-paragraph` sınıfına sahip olan tek öğe, kırmızı bir arka plan ile biçimlendirilecektir çünkü özel özelliğimizin tanımlandığı öğenin bir alt öğesidir.
 
 ```html
 <div class='cool-div'>
-  <p class='cool-paragraph'>Check out my cool, red background!</p>
+  <p class='cool-paragraph'>Benim havalı, kırmızı arkaplanıma bakın!</p>
 </div>
 
-<p class='boring-paragraph'>I'm not in scope so I'm not cool.</p>
+<p class='boring-paragraph'>Ben bağlamda olmadığım için havalı değilim.</p>
 ```
 ```css
 .cool-div {
@@ -71,7 +70,7 @@ In the example below, only the element with the `cool-paragraph` class would get
 }
 ```
 
-#### The :root selector
+#### :root seçicisi
 
 While there may be times where you will want to limit the scope of a custom property, you may want to be able to use other custom properties on many, unrelated selectors. One workaround would be declaring the same custom property on a bunch of selectors, but that defeats one of the purposes of using custom properties in the first place (the ease of changing multiple instances of a value at once).
 
